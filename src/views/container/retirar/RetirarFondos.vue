@@ -10,6 +10,7 @@
         md="6"
       >
         <base-material-card
+          v-if="perfil.tarjetas.length > 0"
           color="success"
           inline
           title="Retira tus fondos"
@@ -33,6 +34,7 @@
                     class="ml-4 mt-0"
                     row
                     prepend-icon="mdi-credit-card"
+                    mandatory
                   >
                     <v-radio
                       v-for="(item, index) in perfil.tarjetas"
@@ -55,6 +57,23 @@
               Enviar pago
             </v-btn>
           </v-card-actions>
+        </base-material-card>
+
+        <base-material-card
+          v-else
+          color="success"
+          inline
+          title="Retira tus fondos"
+          class="px-5 py-3"
+        >
+          <v-col
+            cols="auto"
+            class="text-center"
+          >
+            <v-subheader class="display-1 mt-3">
+              ¡No posee tarjetas registradas!
+            </v-subheader>
+          </v-col>
         </base-material-card>
       </v-col>
     </v-row>
